@@ -25,16 +25,18 @@ Here is a table of the hyperparameter settings:
 
 File | Parm | Setting
 -----|-----|-------
-ddpg_agent | BUFFER_SIZE | 100000
-ddpg_agent | BATCH_SIZE | 256
+ddpg_agent | BUFFER_SIZE | 10000
+ddpg_agent | BATCH_SIZE | 64
 ddpg_agent | TAU | 0.001
-ddpg_agent | LR_ACTOR | 0.001
-ddpg_agent | LR_CRITIC | 0.001
-model | actor fc1 | 128
-model | actor fc2 | 128
-model | critic fc1 | 128
-model | critic fc2 | 128
+ddpg_agent | LR_ACTOR | 0.002
+ddpg_agent | LR_CRITIC | 0.0001
+model | actor fc1 | 256
+model | actor fc2 | 256
+model | critic fc1 | 256
+model | critic fc2 | 256
+model | critic fc3 | 128
 main | seed | 123
+
 
 
 ## Outcome
