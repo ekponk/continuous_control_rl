@@ -30,15 +30,13 @@ continuous_project.ipynb | Main ipython file
 Reacher_Linux | Unity code repository
 dqn_agent.py | Learning agent
 model.py | PyTorch network model
-checkpoint.pth | Model weights
+checkpoint_my_actor.pth | Actor weights
+checkpoint_my_critic.pth | Critic weights
 install.sh | Installation
 requirements.txt | Necessary modules
 report.md | Report on the project
 training.png | Image
 README.md | This file
-
-
-
 
 
 ## Installation
