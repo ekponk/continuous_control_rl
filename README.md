@@ -6,20 +6,20 @@ There are two versions of this project: a single-arm version, and a multi-arm ve
 
 Some pre-trained model weights are provided. A GPU is preferred for training.
 
-For more information, please see the Introduction to the original github project [here] ( https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control ).
+For more information, please see the introduction to the original github project [here] ( https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control ).
 
 
 ## Environment
 
-This is an example of Deep Q Network reinformcement learning in a simple game environment.
-The goal is to pick up as many of the yellow bananas as possible. 
-Yellow bananas are rewarded positively, while Blue bananas are penalized.
+This is an example of an Actor-Critic Deep Reinforcement Learning method in a simple game environment.
+The goal is to get a robot arm, with continuous joints, to track a ball.
 
-The environment is provided as a custom Unity project from Udacity, found here in the `Banana_Linux` folder.
-The original Linux environment can be downloaded [here] (https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip).
-The environment has 37 states. Four actions are available: forward, backward, left and right.
+The environment is provided as a custom Unity project from Udacity, found here in the `Reacher_Linux` folder.
+The original Linux environment can be downloaded [here] (https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux.zip).
+The environment has 33 states corresponding to position, rotation, velocity, and angular velocities of the arm. 
+Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
-Two improvements to the basic Q-Learning algorithm are implemented: experience replay, and fixed Q-targets.
+The particular algorithm used here is Deep Deterministic Policy Gradient Learning.
 
 ## Manifest
 
