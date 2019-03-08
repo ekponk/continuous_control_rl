@@ -17,11 +17,11 @@ In particular, my learning rates were way too low, and the number of nodes in my
 
 ## Settings
 
-There are two models here, an actor and a critic, that perform the evaluation and improvement steps. These are basically the same as the defaults in the provided code, except that I set the two fully-connected layers to 128 nodes each, and added some batch normalization layers as per slack channel suggestions.
+There are two models here, an actor and a critic, that perform the evaluation and improvement steps. These are basically the same as the defaults in the provided code. The main difference was to add some code so that updates were not performed on every time step, as per the suggestions in the Benchmark Implementation.
 
-The ddpg_agent is also mostly the same. Here I ended up increasing the size of the memory buffer to 100000 entries, and doubled the batch size to 256. I also tried several learning rates and ended up going with .001 for both the actor and critic.
+The ddpg_agent is also mostly the same. Here I ended up increasing the size of the memory buffer to 100000 entries, and set the batch size to 64. I also tried several learning rates and ended up going with .002 for the actor and .0001 for the critic.
 
-Here is a table of the hyperparameter settings:
+Here is a table of the main hyperparameter settings:
 
 File | Parm | Setting
 -----|-----|-------
@@ -30,6 +30,7 @@ ddpg_agent | BATCH_SIZE | 64
 ddpg_agent | TAU | 0.001
 ddpg_agent | LR_ACTOR | 0.002
 ddpg_agent | LR_CRITIC | 0.0001
+ddpg_agent | GAMMA | 0.99
 model | actor fc1 | 256
 model | actor fc2 | 256
 model | critic fc1 | 256
@@ -37,19 +38,31 @@ model | critic fc2 | 256
 model | critic fc3 | 128
 main | seed | 123
 
-
+In general I found setting the hyperparameters for this assignment to be more difficult than the first assignment.
 
 ## Outcome
 
-The run I chose to represent here solved the environment (>13) in 371 episodes.
+The run I chose to represent here solved the environment (>30) in 169 episodes.
 
 ```
-Episode 100	Average Score: 1.15
-Episode 200	Average Score: 5.15
-Episode 300	Average Score: 7.89
-Episode 400	Average Score: 10.92
-Episode 471	Average Score: 13.04
-Environment solved in 371 episodes!	Average Score: 13.04
+Episode 10	Average Score: 0.95
+Episode 20	Average Score: 0.87
+Episode 30	Average Score: 1.29
+Episode 40	Average Score: 1.55
+Episode 50	Average Score: 1.97
+Episode 60	Average Score: 2.55
+Episode 70	Average Score: 3.56
+Episode 80	Average Score: 4.98
+Episode 90	Average Score: 7.15
+Episode 100	Average Score: 9.27
+Episode 110	Average Score: 12.74
+Episode 120	Average Score: 16.28
+Episode 130	Average Score: 19.64
+Episode 140	Average Score: 22.75
+Episode 150	Average Score: 25.67
+Episode 160	Average Score: 28.14
+Episode 169	Average Score: 30.13
+Environment solved in 69 episodes!	Average Score: 30.13
 
 ```
 
@@ -60,11 +73,5 @@ Environment solved in 371 episodes!	Average Score: 13.04
 
 I experimented with parameters and this seems to meet the requirements for the class. I'm sure it's possible to do better. 
 In particular, I can see in the class forum that some people have achieved results that faster, so there is room for improvement.
-
-This only incorporates the main elements of the DQN algorithm, and borrows heavily from code created for some of the assignments.
-In future I would like to add some additional improvements, such as prioritized experience replay and dueling DQN.
-
-
-
 
 A second provided assignment is basically the same but with multiple arms, which provides opportunities for sharing learning across agents. It would be interesting to try that to compare the approaches and results.
